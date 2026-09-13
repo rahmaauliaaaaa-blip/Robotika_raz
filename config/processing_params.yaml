@@ -1,0 +1,5 @@
+/processing_node:
+  ros__parameters:
+    threshold: 0.8
+    use_sim_time: false
+

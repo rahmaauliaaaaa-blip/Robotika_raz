@@ -1,0 +1,29 @@
+# Metadata eksperimen Modul 5 - LiDAR, IMU, Odometry, rosbag2
+experiment: m05_straight_1m_t01
+module: 5
+robot: TurtleBot3
+ros_distro: humble
+recorded_at: "2025-11-25T02:06:22Z"   # 09:06 WIB (dari timestamp bag)
+bag:
+  path: data/bags/m05_straight_1m_t01
+  storage: sqlite3
+  compression: zstd (mode file)
+  duration_s: 3355.2
+  message_count: 357025
+  topics: [/scan, /imu, /odom, /joint_states, /tf, /tf_static, /cmd_vel]
+  note: satu bag berisi seluruh sesi (trial gerak lurus dan rotasi)
+straight_experiment:
+  reference_m: 1.0
+  trials: 5
+  control: teleop (manual)
+  odom_reset_between_trials: false
+rotation_experiment:
+  reference_deg: 360
+  trials: 5
+floor: seragam
+battery_voltage_start: not recorded
+results:
+  - data/results/m05_straight.csv
+  - data/results/m05_rotation_raw.csv
+scripts:
+  - scripts/analyze_odom.py

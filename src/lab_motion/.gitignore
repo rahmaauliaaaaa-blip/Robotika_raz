@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.swp
+*.swo
+build/
+install/
+log/
+*.egg-info/
+data/bags/
+data/raw/

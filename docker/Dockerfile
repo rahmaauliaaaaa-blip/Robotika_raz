@@ -13,6 +13,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
  ros-humble-demo-nodes-cpp \
  ros-humble-demo-nodes-py \
  git nano iputils-ping net-tools \
+ ros-humble-turtlebot3-gazebo \
+ ros-humble-turtlebot3-simulations \
+ ros-humble-gazebo-ros-pkgs \
  && rm -rf /var/lib/apt/lists/*
 
 RUN groupadd -g ${GID} ${USERNAME} 2>/dev/null || true && \

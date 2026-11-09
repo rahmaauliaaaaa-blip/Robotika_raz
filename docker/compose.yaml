@@ -15,6 +15,10 @@ services:
       - RMW_IMPLEMENTATION=rmw_fastrtps_cpp
       - DISPLAY=${DISPLAY}
       - QT_X11_NO_MITSHM=1
+      - DISPLAY=${DISPLAY}
+      - TURTLEBOT3_MODEL=burger
+      - ROS_DOMAIN_ID=${ROS_DOMAIN_ID:-31}
+      - LIBGL_ALWAYS_SOFTWARE=1
     volumes:
       - ../src:/ws/src
       - ../config:/ws/config
@@ -25,7 +29,15 @@ services:
       - ws_install:/ws/install
     stdin_open: true
     tty: true
+  sim:
+    extends: dev
+    container_name: robotics_sim
+    profiles: ["sim"]
+    command: >
+      bash -lc "source /opt/ros/humble/setup.bash &&
+      ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py"
 
 volumes:
   ws_build:
   ws_install:
+
